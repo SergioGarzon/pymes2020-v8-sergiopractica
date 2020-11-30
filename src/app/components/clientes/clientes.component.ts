@@ -9,6 +9,8 @@ import { ModalDialogService } from "../../services/modal-dialog.service";
   templateUrl: "./clientes.component.html",
   styleUrls: ["./clientes.component.css"]
 })
+
+//FechaCenso 
 export class ClientesComponent implements OnInit {
   Titulo = "Clientes";
   TituloAccionABMC = {
@@ -108,6 +110,7 @@ export class ClientesComponent implements OnInit {
     const itemCopy = { ...this.FormReg.value };
 
     //convertir fecha de string dd/MM/yyyy a ISO para que la entienda webapi
+    /*
     var arrFecha = itemCopy.FechaCenso.substr(0, 10).split("/");
     if (arrFecha.length == 3)
       itemCopy.FechaNacimiento = new Date(
@@ -115,7 +118,7 @@ export class ClientesComponent implements OnInit {
         arrFecha[1] - 1,
         arrFecha[0]
       ).toISOString();
-
+    */
     // agregar post
     if (itemCopy.IdCliente == 0 || itemCopy.IdIdClientePais == null) {
       itemCopy.IdCliente = 0;
