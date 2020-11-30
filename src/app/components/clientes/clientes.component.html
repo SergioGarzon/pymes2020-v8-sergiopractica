@@ -63,7 +63,7 @@
 <form name="FormReg" [formGroup]='FormReg' *ngIf="AccionABMC != 'L'" class="bg-light">
 
 	<fieldset [disabled]="AccionABMC==='C'">
-		<!--campo nombre-->
+		<!--campo Nombre-->
 		<div class="form-group row">
 			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Nombre">Nombre <span
                     class="text-danger">*</span></label>
@@ -84,7 +84,7 @@
 		</div>
 
 		<!--campo fechacenso-->
-    <!--
+		<!--
 		<div class="form-group row">
 			<label class="col-form-label col-sm-2 col-sm-offset-2">Fecha de Censo <span
                     class="text-danger">*</span></label>
@@ -107,19 +107,18 @@
 
 
 
-		<!--campo poblacion-->
 		<div class="row form-group">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Poblacion">Poblacion <span
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="NumeroDocumento">NumeroDocumento <span
                     class="text-danger">*</span></label>
 			<div class="col-sm-6">
-				<input type="text" name="Poblacion" class="form-control" formControlName="Poblacion"
-            [ngClass]="{'is-invalid': (FormReg.controls.Poblacion.touched || submitted)  
-            && FormReg.controls.Poblacion.errors}" />
-				<span class="text-danger" *ngIf="(FormReg.controls.Poblacion.touched || submitted) 
-                       && FormReg.controls.Poblacion.errors?.required">
+				<input type="text" name="NumeroDocumento" class="form-control" formControlName="NumeroDocumento"
+            [ngClass]="{'is-invalid': (FormReg.controls.NumeroDocumento.touched || submitted)  
+            && FormReg.controls.NumeroDocumento.errors}" />
+				<span class="text-danger" *ngIf="(FormReg.controls.NumeroDocumento.touched || submitted) 
+                       && FormReg.controls.NumeroDocumento.errors?.required">
                     Dato requerido.
                 </span>
-				<span class="text-danger" *ngIf="FormReg.controls.Poblacion.errors?.pattern">
+				<span class="text-danger" *ngIf="FormReg.controls.NumeroDocumento.errors?.pattern">
                     Dato numérico, 1 a 10 dígitos.
                 </span>
 			</div>
