@@ -5,12 +5,12 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
 
 @Component({
-  selector: 'app-paises',
-  templateUrl: './paises.component.html',
-  styleUrls: ['./paises.component.css']
+  selector: 'app-clientes',
+  templateUrl: './clientes.component.html',
+  styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
-  Titulo = "Clientes";
+  Titulo = "Países";
   TituloAccionABMC = {
     A: "(Agregar)",
     B: "(Eliminar)",
