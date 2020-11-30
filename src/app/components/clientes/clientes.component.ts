@@ -9,7 +9,7 @@ import { ModalDialogService } from "../../services/modal-dialog.service";
   templateUrl: './paises.component.html',
   styleUrls: ['./paises.component.css']
 })
-export class PaisesComponent implements OnInit {
+export class ClientesComponent implements OnInit {
   Titulo = "Países";
   TituloAccionABMC = {
     A: "(Agregar)",
