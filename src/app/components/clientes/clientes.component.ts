@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Clientes } from "../../models/clientes";
-import { PaisesService } from "../../services/paises.service";
+import { ClientesService } from "../../services/clientes.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
 
@@ -24,7 +24,7 @@ export class PaisesComponent implements OnInit {
     RD: " Revisar los datos ingresados..."
   };
 
-  Lista: Pais[] = [];
+  Lista: Clientes[] = [];
   RegistrosTotal: number;
   SinBusquedasRealizadas = true;
 
@@ -36,7 +36,7 @@ export class PaisesComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private paisesService: PaisesService,
+    private paisesService: ClientesService,
     private modalDialogService: ModalDialogService
   ) { }
 
