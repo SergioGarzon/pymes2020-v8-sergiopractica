@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pais } from "../../models/pais";
+import { Clientes } from "../../models/clientes";
 import { PaisesService } from "../../services/paises.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
