@@ -119,8 +119,8 @@ export class PaisesComponent implements OnInit {
       ).toISOString();
 
     // agregar post
-    if (itemCopy.IdPais == 0 || itemCopy.IdPais == null) {
-      itemCopy.IdPais = 0;
+    if (itemCopy.IdCliente == 0 || itemCopy.IdIdClientePais == null) {
+      itemCopy.IdCliente = 0;
       this.paisesService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
         this.modalDialogService.Alert("Registro agregado correctamente.");
