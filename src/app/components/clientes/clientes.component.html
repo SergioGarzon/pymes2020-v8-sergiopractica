@@ -22,19 +22,15 @@
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<th class="text-center">IdPais</th>
+				<th class="text-center">IdCliente</th>
 				<th class="text-center">Nombre</th>
-				<th class="text-center">FechaCenso</th>
-				<th class="text-center">Poblacion</th>
 
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let dto of Lista">
-				<td>{{dto.IdPais}}</td>
+				<td>{{dto.IdCliente}}</td>
 				<td>{{dto.Nombre | uppercase}}</td>
-				<td>{{dto.FechaCenso}}</td>
-				<td>{{dto.Poblacion}}</td>
 			</tr>
 		</tbody>
 	</table>
