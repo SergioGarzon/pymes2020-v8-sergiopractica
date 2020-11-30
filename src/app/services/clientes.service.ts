@@ -6,6 +6,10 @@ import {
 import { of } from "rxjs";
 import { Clientes } from "../models/clientes";
 
+@Injectable({
+  providedIn: "root"
+})
+
 @Injectable()
 export class ClientesService {
   resourceUrl: string;

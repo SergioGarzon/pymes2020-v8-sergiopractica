@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
-import { RouterModule } from '@angular/router';
-import { APP_BASE_HREF} from '@angular/common';  
+import { RouterModule } from "@angular/router";
+import { APP_BASE_HREF } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -36,19 +36,19 @@ import { ClientesComponent } from "./components/clientes/clientes.component";
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-      { path: 'inicio', component: InicioComponent },
-      { path: 'articulos', component: ArticulosComponent },
-      { path: 'articulosfamilias', component: ArticulosFamiliasComponent },
-      { path: 'clientes', component: ClientesComponent}
+      { path: "", redirectTo: "/inicio", pathMatch: "full" },
+      { path: "inicio", component: InicioComponent },
+      { path: "articulos", component: ArticulosComponent },
+      { path: "articulosfamilias", component: ArticulosFamiliasComponent },
+      { path: "clientes", component: ClientesComponent }
     ]),
     NgbPaginationModule,
-    NgbModalModule,
+    NgbModalModule
   ],
   entryComponents: [ModalDialogComponent],
   providers: [
-     {provide: APP_BASE_HREF, useValue : '/' },
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true,}
+    { provide: APP_BASE_HREF, useValue: "/" },
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
