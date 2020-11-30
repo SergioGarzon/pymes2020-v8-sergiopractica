@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Clientes } from "../../models/clientes";
 import { ClientesService } from "../../services/clientes.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
 
 @Component({
-  selector: 'app-clientes',
-  templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.css']
+  selector: "app-clientes",
+  templateUrl: "./clientes.component.html",
+  styleUrls: ["./clientes.component.css"]
 })
 export class ClientesComponent implements OnInit {
   Titulo = "Clientes";
@@ -36,17 +36,18 @@ export class ClientesComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private paisesService: ClientesService,
+    private clienteService: ClientesService,
     private modalDialogService: ModalDialogService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.FormReg = this.formBuilder.group({
-      IdPais: [0],
+      IdCliente: [0],
       Nombre: [
         "",
         [Validators.required, Validators.minLength(4), Validators.maxLength(30)]
       ],
+      /*
       FechaCenso: [
         "",
         [
@@ -55,8 +56,11 @@ export class ClientesComponent implements OnInit {
             "(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](19|20)[0-9]{2}"
           )
         ]
-      ],
-      Poblacion: [null, [Validators.required, Validators.pattern("[0-9]{1,10}")]],
+      ],*/
+      NumeroDocumento: [
+        null,
+        [Validators.required, Validators.pattern("[0-9]{1,10}")]
+      ]
     });
   }
 
@@ -67,28 +71,25 @@ export class ClientesComponent implements OnInit {
     this.FormReg.markAsUntouched();
   }
 
-  
   Buscar() {
     this.SinBusquedasRealizadas = false;
-    this.paisesService
-      .get()
-      .subscribe((res: any) => {
-        this.Lista = res;
-        this.RegistrosTotal = res.RegistrosTotal;
-      });
+    this.clienteService.get().subscribe((res: any) => {
+      this.Lista = res;
+      this.RegistrosTotal = res.RegistrosTotal;
+    });
   }
 
   BuscarPorId(Dto, AccionABMC) {
     window.scroll(0, 0); // ir al incio del scroll
 
-    this.paisesService.getById(Dto.IdPais).subscribe((res: any) => {
+    this.clienteService.getById(Dto.IdPais).subscribe((res: any) => {
       this.FormReg.patchValue(res);
 
       //formatear fecha de  ISO 8061 a string dd/MM/yyyy
-      var arrFecha = res.FechaCenso.substr(0, 10).split("-");
+      /*var arrFecha = res.FechaCenso.substr(0, 10).split("-");
       this.FormReg.controls.FechaCenso.patchValue(
         arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0]
-      );
+      );*/
 
       this.AccionABMC = AccionABMC;
     });
@@ -98,7 +99,6 @@ export class ClientesComponent implements OnInit {
     this.BuscarPorId(Dto, "C");
   }
 
-  
   Grabar() {
     this.submitted = true;
     // verificar que los validadores esten OK
@@ -121,7 +121,7 @@ export class ClientesComponent implements OnInit {
     // agregar post
     if (itemCopy.IdCliente == 0 || itemCopy.IdIdClientePais == null) {
       itemCopy.IdCliente = 0;
-      this.paisesService.post(itemCopy).subscribe((res: any) => {
+      this.clienteService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
         this.modalDialogService.Alert("Registro agregado correctamente.");
         this.Buscar();
@@ -132,5 +132,4 @@ export class ClientesComponent implements OnInit {
   Volver() {
     this.AccionABMC = "L";
   }
-
 }
