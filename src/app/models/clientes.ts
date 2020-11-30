@@ -1,4 +1,4 @@
-export class Articulo {
+export class Clientes {
   IdCliente: number;
   Nombre: string;
 };
